@@ -2,6 +2,7 @@ import 'package:dramastation/widgets/eventTile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:dramastation/model/event_list.dart';
+import 'package:dramastation/widgets/banner.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -23,6 +24,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
+          BannerThingie(),
           Expanded(
             child: GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -54,6 +56,26 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            label: 'home',
+            icon: Icon(Icons.home_outlined, color: Colors.grey),
+          ),
+          BottomNavigationBarItem(
+            label: 'liked',
+            icon: Icon(Icons.favorite_border, color: Colors.grey),
+          ),
+          BottomNavigationBarItem(
+            label: 'your pics',
+            icon: Icon(Icons.shopping_bag_outlined, color: Colors.grey),
+          ),
+          BottomNavigationBarItem(
+            label: 'profile',
+            icon: Icon(Icons.person_outline_outlined, color: Colors.grey),
           ),
         ],
       ),
