@@ -1,3 +1,4 @@
+import 'package:dramastation/screens/eventScreen.dart';
 import 'package:dramastation/widgets/eventTile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -35,7 +36,12 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (ctx) => EventScreen(events[0])),
+              );
+            },
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
