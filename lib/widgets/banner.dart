@@ -8,33 +8,33 @@ class BannerThingie extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: MediaQuery.of(context).size.width,
+      height: 200,
+      decoration: BoxDecoration(color: Colors.grey),
       child: CarouselSlider(
         items: [
           Banneritem(
             heading: 'Something',
             subheading: 'something about something',
-            imagePath: 'assets/introImage1.jpeg',
+            imagePath: 'assets/carouselPicOne.jpeg',
           ),
           Banneritem(
             heading: 'One thing',
             subheading: 'One thing about one thing',
-            imagePath: 'assets/introImage2.jpeg',
+            imagePath: 'assets/carouselPicTwo.jpeg',
           ),
           Banneritem(
             heading: 'Something else',
             subheading: 'Something else about something else',
-            imagePath: 'assets/introImage3.jpeg',
+            imagePath: 'assets/carouselPicThree.jpg',
           ),
         ],
         options: CarouselOptions(
           height: 200,
           autoPlay: true,
-          autoPlayInterval: Duration(seconds: 3),
+          autoPlayInterval: Duration(seconds: 4),
         ),
       ),
-      width: MediaQuery.of(context).size.width,
-      height: 200,
-      decoration: BoxDecoration(color: Colors.grey),
     );
   }
 }
