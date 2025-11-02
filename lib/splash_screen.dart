@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:dramastation/home_screen.dart';
+import 'package:dramastation/screens/home_screen.dart';
 
 final random = Random();
 
@@ -19,7 +19,7 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           children: [
             Image.asset(
-              'assets/introImage7.jpeg',
+              'assets/introImage$imageIndex.jpeg',
               width: MediaQuery.of(context).size.width,
             ),
             SizedBox(height: 100),

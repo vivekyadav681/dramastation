@@ -5,21 +5,25 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:dramastation/model/event_list.dart';
 import 'package:dramastation/widgets/banner.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
   Widget build(BuildContext context) {
+    int _selectedIndex = 0;
     return Scaffold(
       appBar: AppBar(
         leading: Icon(Icons.menu),
-        title: Center(
-          child: Text(
-            'Drama-station',
-            style: GoogleFonts.playfairDisplay(
-              fontSize: 18,
-              fontStyle: FontStyle.italic,
-            ),
+        title: Text(
+          'Drama-station',
+          style: GoogleFonts.playfairDisplay(
+            fontSize: 18,
+            fontStyle: FontStyle.italic,
           ),
         ),
       ),
@@ -35,37 +39,43 @@ class HomeScreen extends StatelessWidget {
               itemBuilder: (context, index) => Eventtile(events[index]),
             ),
           ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (ctx) => EventScreen(events[0])),
-              );
-            },
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                margin: EdgeInsets.all(10),
-                height: 100,
-                child: Column(
-                  children: [
-                    Text('Highlighted event'),
+          // GestureDetector(
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (ctx) => EventScreen(events[0])),
+          //     );
+          //   },
+          //   child: Padding(
+          //     padding: const EdgeInsets.all(8.0),
+          //     child: Container(
+          //       margin: EdgeInsets.all(10),
+          //       height: 100,
+          //       child: Column(
+          //         children: [
+          //           Text('Highlighted event'),
 
-                    Row(
-                      children: [
-                        Icon(Icons.book),
-                        Spacer(),
-                        Text('check this out'),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+          //           Row(
+          //             children: [
+          //               Icon(Icons.book),
+          //               Spacer(),
+          //               Text('check this out'),
+          //             ],
+          //           ),
+          //         ],
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: (value) {
+          setState(() {
+            _selectedIndex = value;
+          });
+        },
         items: [
           BottomNavigationBarItem(
             label: 'home',
